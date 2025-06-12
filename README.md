@@ -48,18 +48,6 @@
 - npm or yarn
 - Azure OpenAI API access
 
-### Download Required Data Files
-
-Before running the application, make sure to download the necessary `.npy` file used for embedding-based searches:
-
-#### Download Link
-
-- [Download `articles.json`](https://drive.google.com/file/d/1OSTPeHj8PtG9u6crnnzi_HVd55p3jzHQ/view?usp=drive_link)
-- [Download `law_embeddings.npy`](https://drive.google.com/uc?id=1eKgYqTxBx_U4Nzzwfv1w1Hwk9dRIZMMA)
-
-#### 📦 Where to Place them
-
-After downloading, place the files inside the legal-backend/ (same directory as `api.py`):
 
 ## Setup
 
