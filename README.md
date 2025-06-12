@@ -24,5 +24,19 @@
 ├── Parsing Raw Text.ipynb                     # Clean and segment raw Arabic legal text
 ├── IR Benchmarking.ipynb                      # Evaluate IR results (MAP, MRR, NDCG)
 ├── Different Models for QA .ipynb             # Compare LLMs for Q&A (OpenAI, etc.)
-├── app/                                       # React + TypeScript frontend
-└── data/                                      # Arabic Egyptian law documents
+
+
+```
+.
+├── frontend/               # React + TypeScript frontend application
+│   ├── src/               # Source code
+│   ├── public/            # Static assets
+│   └── package.json       # Frontend dependencies
+│
+├── legal-backend/         # FastAPI backend application
+│   ├── api.py            # Main API implementation
+│   ├── articles.json     # Legal articles database
+│   └── law_embeddings.npy # Pre-computed embeddings
+│
+└── requirements.txt       # Python dependencies
+```
