@@ -26,7 +26,7 @@
 ├── Different Models for QA .ipynb             # Compare LLMs for Q&A (OpenAI, etc.)
 
 
-```
+```bash
 .
 ├── frontend/               # React + TypeScript frontend application
 │   ├── src/               # Source code
@@ -40,3 +40,85 @@
 │
 └── requirements.txt       # Python dependencies
 ```
+
+## Prerequisites
+
+- Python 3.10.11 (strictly recommended for compatibility)
+- Node.js 16 or higher
+- npm or yarn
+- Azure OpenAI API access
+
+### Download Required Data Files
+
+Before running the application, make sure to download the necessary `.npy` file used for embedding-based searches:
+
+#### Download Link
+
+- [Download `articles.json`](https://drive.google.com/file/d/1OSTPeHj8PtG9u6crnnzi_HVd55p3jzHQ/view?usp=drive_link)
+- [Download `law_embeddings.npy`](https://drive.google.com/uc?id=1eKgYqTxBx_U4Nzzwfv1w1Hwk9dRIZMMA)
+
+#### 📦 Where to Place them
+
+After downloading, place the files inside the legal-backend/ (same directory as `api.py`):
+
+## Setup
+
+### Backend Setup
+
+1. Create a virtual environment:
+   ```bash
+   cd legal-backend
+   python3.10 -m venv .venv
+   .venv\Scripts\Activate.ps1
+   ```
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Set up environment variables:
+   Create a `.env` file in the `legal-backend` directory with:
+   ```
+   AZURE_OPENAI_API_KEY=
+   AZURE_OPENAI_ENDPOINT=https://eslsca-openai.openai.azure.com/
+   AZURE_OPENAI_API_VERSION=2024-05-01-preview
+   ```
+
+4. Start the backend server:
+   ```bash
+   uvicorn api:app --reload --host 127.0.0.1 --port 4000 --log-level debug
+   ```
+
+### Frontend Setup
+
+1. Install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+1. Open your browser and navigate to `http://localhost:5173`
+2. Type your legal question in Arabic
+3. The system will provide a detailed legal response based on relevant Egyptian laws
+
+## API Endpoints
+
+- `POST /legal-advice-stream`: Streams legal advice based on user questions
+  - Request body: `{ "question": "your legal question in Arabic" }`
+  - Response: Streaming text response
+
+## Acknowledgments
+
+- Egyptian Legal System
+- Azure OpenAI
+- FastAPI
+- React
+- FAISS
